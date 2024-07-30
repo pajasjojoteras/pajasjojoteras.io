@@ -1,0 +1,167 @@
+body {
+    font-family: 'Georgia', serif;
+    background-color: #fff5f7;
+    color: #4b2e83;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #d7263d;
+    font-size: 2.5em;
+    margin-top: 20px;
+}
+
+.collage {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffe3e6;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.foto {
+    position: relative;
+    width: 220px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.foto:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.foto img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.foto::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    z-index: -1;
+    border-radius: 10px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    font-size: 20px;
+    font-family: 'Georgia', serif;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Posicionamiento de los botones de navegación a los lados de la imagen */
+.nav-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    color: #ccc;
+    font-size: 2em;
+    cursor: pointer;
+    outline: none;
+    transition: color 0.3s ease;
+}
+
+.nav-btn:hover {
+    color: #fff;
+}
+
+/* Media queries para dispositivos móviles */
+@media (max-width: 768px) {
+    .collage {
+        padding: 10px;
+        gap: 10px;
+    }
+    
+    .foto {
+        width: 45%;
+        padding: 5px;
+    }
+    
+    .foto img {
+        height: auto;
+    }
+    
+    .nav-buttons {
+        width: 90%;
+    }
+    
+    .nav-btn {
+        font-size: 1.5em;
+    }
+    
+    #caption {
+        font-size: 16px;
+        padding: 5px 0;
+    }
+}
